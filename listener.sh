@@ -54,7 +54,7 @@ do
      ;;
   esac
   
-  if [ $vNumCount = "4" ] 
+  if [ $vNumCount = "10" ] 
   then
     vNumCount=0
     vMessageBuffer=""
@@ -63,6 +63,11 @@ do
     do
       read -s -n 1 vChar
       echo "Message $vChar"
+
+      if [[ $vChar != *[!\ ]* ]]; then
+            vMessageBuffer="$vMessageBuffer"" "
+      fi
+
       vMessageBuffer="$vMessageBuffer""$vChar"
       case $vChar in
         "b")
